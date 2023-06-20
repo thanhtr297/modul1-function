@@ -8,3 +8,31 @@
 
 </body>
 </html>
+<script>
+    function isPrime(num) {
+        if (num < 2) {
+            return false
+        }
+        for (let i = 2; i <= Math.sqrt(num); i++) {
+            if (num % 2 === 0) {
+                return false
+            }
+        }
+        return true
+    }
+
+    let input = +prompt('Nhap vao so de kiem tra: ')
+    if (isPrime(input)) {
+        alert(input + ' La so nguyen to')
+    } else {
+        alert(input +   " khong la so nguyen to")
+    }
+   function so_ngto_nhohon10000() {
+       for (let i = 0; i < 100; i++) {
+           if (isPrime(i)) {
+               console.log(i)
+           }
+       }
+   }
+    so_ngto_nhohon10000()
+</script>

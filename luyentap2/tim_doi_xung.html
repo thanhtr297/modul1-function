@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        p button {
+            border-radius: 5px;
+            background-color: green;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<h3>Add New Product</h3>
+<p>
+    <input type="text" id="input" placeholder="New Product" size="25">
+    <button type="button" onclick="add()">Add</button>
+</p>
+<h4>Display All Product</h4>
+<h5>Product Name</h5>
+<p>
+    <input type="text" id="update"><button type="button" onclick="updateP()">Update</button>
+</p>
+<p id="display"></p>
+</body>
+</html>
+<script>
+    let arr = ['Sony Xperia', 'Samsung Galaxy', 'Nokia 6', 'Xiaomi Redmi Note 4', 'Apple iPhone 6S',
+        'Xiaomi Mi 5s Plus', 'Apple iPhone 8 Plus', 'FUjitsu F-04E', 'Oppo A71'];
+
+    function listProduct() {
+        let data = '<table  >';
+        for (let i = 0; i < arr.length; i++) {
+            data += "<tr>"
+            data += '<td>' + arr[i] + '</td>';
+            data += '<td><input type="button"  value="Edit" onclick="editP(' + i + ')" style="border-radius: 5px;\n' +
+                '            background-color: green;\n' +
+                '            color: white;"></td>'
+            data += '<td><input type="button"  value="Delete" onclick="deleteP(' + i + ')"style="border-radius: 5px;\n' +
+                '            background-color: green;\n' +
+                '            color: white;"></td>'
+        }
+        data += '</table>';
+        document.getElementById('display').innerHTML = data
+    }
+
+    listProduct();
+
+
+    function deleteP(index) {
+        arr.splice(index, 1);
+        listProduct();
+    }
+    var a = 0
+
+    function updateP() {
+        arr[a] = document.getElementById('update').value;
+        listProduct()
+    }
+    function editP(i) {
+        var editProduct = document.getElementById('update')
+        editProduct.value = arr[i];
+        a = i
+
+    }
+
+    function add() {
+        let a = document.getElementById('input').value;
+        arr.push(a)
+        listProduct()
+    }
+
+</script>
