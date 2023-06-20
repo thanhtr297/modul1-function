@@ -20,7 +20,8 @@
 <h4>Display All Product</h4>
 <h5>Product Name</h5>
 <p>
-    <input type="text" id="update"><button type="button" onclick="updateP()">Update</button>
+    <input type="text" id="update">
+    <button type="button" onclick="updateP()">Update</button>
 </p>
 <p id="display"></p>
 </body>
@@ -52,12 +53,14 @@
         arr.splice(index, 1);
         listProduct();
     }
+
     var a = 0
 
     function updateP() {
         arr[a] = document.getElementById('update').value;
         listProduct()
     }
+
     function editP(i) {
         var editProduct = document.getElementById('update')
         editProduct.value = arr[i];
